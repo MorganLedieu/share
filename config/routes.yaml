@@ -5,3 +5,15 @@ index:
 contact:
     path: /contact
     controller: App\Controller\StaticController::contact
+
+ajoutTheme:
+    path: /ajoutTheme
+    controller: App\Controller\StaticController::ajoutTheme
+
+listeThemes:
+    path: /listeThemes
+    controller: App\Controller\StaticController::listeThemes
+
+modifThemes:
+    path: /modifThemes
+    controller: App\Controller\StaticController::modifThemes
