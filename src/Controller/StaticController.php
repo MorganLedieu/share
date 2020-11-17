@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Theme;
 use App\Form\AjoutThemeType;
 use App\Form\ModifThemeType;
-
 class StaticController extends AbstractController
 {
     /**
@@ -82,6 +81,15 @@ class StaticController extends AbstractController
         $em = $this->getDoctrine();
         $repoTheme = $em->getRepository(Theme::class);   
 
+        if ($request->get('supp')!=null){
+            $theme = $repoTheme->find($request->get('supp'));
+            if($theme!=null){
+                $em->getManager()->remove($theme);
+                $em->getManager()->flush();
+            }    
+            return $this->redirectToRoute('listeThemes');
+        }
+
         $themes = $repoTheme->findBy(array(),array('libelle'=>'ASC'));
         return $this->render('theme/liste_themes.html.twig', [
            'themes'=>$themes
@@ -122,4 +130,7 @@ class StaticController extends AbstractController
             'form'=>$form->createView()
         ]);
     }
+
+
 }
+ 

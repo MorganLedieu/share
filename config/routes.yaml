@@ -17,3 +17,31 @@ listeThemes:
 modifThemes:
     path: /modifThemes
     controller: App\Controller\StaticController::modifThemes
+
+listeUtilisateurs:
+    path: /listeUtilisateurs
+    controller: App\Controller\UtilisateurController::listeUtilisateurs
+    
+ajoutUtilisateur:
+    path: /ajoutUtilisateur
+    controller: App\Controller\UtilisateurController::ajoutUtilisateur
+
+ajoutFichier:
+    path: /ajoutFichier
+    controller: App\Controller\FichierController::ajoutFichier
+
+telechargementFichier:
+    path: /telechargementFichier
+    controller: App\Controller\FichierController::telechargementFichier
+
+profilUtilisateur:
+    path: /profilUtilisateur
+    controller: App\Controller\UtilisateurController::profilUtilisateur
+
+modifUtilisateur:
+    path: /modifUtilisateur
+    controller: App\Controller\StaticController::modifUtilisateur
+
+inscrire:
+    path: /inscrire
+    controller: App\Controller\SecurityController::inscrire

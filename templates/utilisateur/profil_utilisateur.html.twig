@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}Profil de l'utilisateur{% endblock %}
+
+{% block body %}
+{{parent()}}
+<div class="container-fluid">   
+        <div class="row justify-content-center">
+            <h1 class="text-center text-primary p-4">Profil de l'utilisateur ({{utilisateur.id |capitalize }})</h1>
+      
+      
+      
+    </tr>
+               
+        </div>
+        <div class="row justify-content-center">
+<hr>
+
+        <h2> Nom : <td>{{utilisateur.nom |capitalize }} </td></h2>
+        <hr>
+        <h1><img src="{{base64}}" class="card-img" ></h1>
+
+        
+        <hr>
+      <h2> Prenom : <td>{{utilisateur.prenom |capitalize }}</td></h2>
+        
+      <h2>Date de naissance : <td>{{utilisateur.datenaissance |date }}</td></h2>
+        
+      <h2>Date d'inscription : <td>{{utilisateur.dateinscription |date }}</td></h2>
+      
+     
+
+        
+        <div class="col-8 bg-white p-4 m-0 text-primary">
+        <a href="{{path('modif_utilisateur',{'id': utilisateur.id})}}" class="text-black"><span class="material-icons" title="Modifier un thème">Modifier les informations du profil</a>
+        <hr>
+        <a href="#" class="text-black"><span class="material-icons" title="Modifier un thème">Modifier la photo de profil</a>
+
+        <hr>
+        <a href="{{path('listeUtilisateurs',{'supp':utilisateur.id})}}" class="text-black"><span class="material-icons" title="Supprimer le thème">
+Supprimer le profil</a>
+            </div>
+        </div>
+</div>
+{% endblock %}  

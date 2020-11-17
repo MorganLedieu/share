@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{parent()}}Liste thèmes{% endblock %}
+{% block title %}{{parent()}}Liste utilisateurs{% endblock %}
 
 {% block body %}
 {{parent()}}
 <div class="container-fluid">   
         <div class="row justify-content-center">
-            <h1 class="text-center text-primary p-4">Liste des thèmes</h1>
+            <h1 class="text-center text-primary p-4">Liste des utilisateurs</h1>
         </div>
         <div class="row justify-content-center">
             <div class="col-8 p-4 m-0 text-primary">
@@ -14,18 +14,19 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Libellé</th>  
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
     </tr>
   </thead>
   <tbody>
-            {% for theme in themes %}
+            {% for utilisateur in utilisateur %}
              <tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">
      
-<td>{{theme.libelle |capitalize }}</td><td><a href="{{path('modif_theme',{'id': theme.id})}}" class="text-white"><span class="material-icons" title="Modifier un thème">Modifier</span></a>
-</td><td><a href="{{path('liste_themes',{'supp':theme.id})}}" class="text-white"><span class="material-icons" title="Supprimer le thème">
-Supprimer   </tr>
-
-    
+      <td>{{utilisateur.nom |capitalize }}</td>
+      <td>{{utilisateur.prenom |capitalize }}</td><td><a href="{{path('profil_utilisateur',{'id': utilisateur.id})}}" class="text-white"><span class="material-icons" title="Profil de l'utilisateur">
+Profil</td>
+      
+    </tr>
                
             {% endfor %}
  </tbody>
